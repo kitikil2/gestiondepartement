@@ -8,6 +8,7 @@ public class GestiondepartementsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestiondepartementsApplication.class, args);
+		System.out.println("Bonsoir");
 	}
 
 }
