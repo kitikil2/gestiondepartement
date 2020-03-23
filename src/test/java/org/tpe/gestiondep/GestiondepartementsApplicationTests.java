@@ -8,6 +8,7 @@ class GestiondepartementsApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("Bonsoir");
 	}
 
 }
