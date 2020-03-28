@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Departement</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/bootstrap.min.css" th:href="@{bootstrap.min.css}">
+</head>
+<body>
+	<table class="table">
+		<tr>
+			<td>Nom du departement</td>
+		</tr>
+		<tr th:each="d:${listedepartement}">
+			<td th:text="${d.nomDepartement}"></td>
+			<td><a
+				th:href="@{/departement(iddepartement=${d.Id_departement},idf=nul)}">voir</a></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css"
+	href="../static/bootstrap.min.css" th:href="@{bootstrap.min.css}">
+<title>Liste</title>
+</head>
+<body>
+	<div class="conteneur">
+		<h1>Departement De Mathematique et Informatique:</h1>
+		<nav>
+			<ul id="menu_horizontal">
+				<li><a
+					th:href="@{/departement(iddepartement=${iddepartement},idf=en)}">Lister
+						Enseignants</a></li>
+				<li><a
+					th:href="@{/departement(iddepartement=${iddepartement}, idf=et)}">Lister
+						Etudiants </a></li>
+				<li><a
+					th:href="@{/departement(iddepartement=${iddepartement}, idf=ue)}">Lister
+						UE</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div th:if="${idf=='en'}">
+		<table class="table">
+			<tr>
+				<td>Nom En</td>
+				<td>Prenom En</td>
+				<td>Date naissance</td>
+				<td>Lieu de naissance</td>
+			</tr>
+			<tr th:each="en:${listeEn}">
+				<td th:text="${en.nomEnsignant}"></td>
+				<td th:text="${en.prenomEnsignant}"></td>
+				<td th:text="${en.dateNaissance}"></td>
+				<td th:text="${en.lieuNaissance}"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div th:if="${idf=='et'}">
+		<h2>Liste Etudiant</h2>
+		<table class="table">
+			<tr>
+				<td>Nom Et</td>
+				<td>Prenom Et</td>
+				<td>Date naissance</td>
+				<td>Lieu de naissance</td>
+				<td>Matricule</td>
+			</tr>
+			<tr th:each="et:${listeEtudiant}">
+				<td th:text="${et.nomEtudiant}"></td>
+				<td th:text="${et.prenomEtudiant}"></td>
+				<td th:text="${et.dateNassance}"></td>
+				<td th:text="${et.lieuNaissance}"></td>
+				<td th:text="${et.Matricule}"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div th:if="${idf=='ue'}">
+		<h2>Liste Unite d'enseignement</h2>
+		<table class="table">
+			<tr>
+				<td>nomUE</td>
+				<td>codeUE</td>
+			</tr>
+			<tr th:each="ue:${listeUE}">
+				<td th:text="${ue.nomUE}"></td>
+				<td th:text="${ue.codeUE}"></td>
+			</tr>
+		</table>
+	</div>
+
+
+</body>
+</html>
